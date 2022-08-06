@@ -69,5 +69,5 @@ $
 ```
 
 ## Authors
-* [JULIUS MOMANYI KANANI](https://github.com/julius-kanani) - julius.kanani@students.kisiiuniversity.ac.ke
+* [JULIUS MOMANYI KANANI](https://github.com/julius-kanani) - juliusm.kanani@gmail.com
 * [Psalm Chiemenam Orah](https://github.com/orahpsalm) - psalmorahcle@gmail.com
