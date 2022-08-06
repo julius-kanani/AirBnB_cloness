@@ -3,7 +3,7 @@
 This module supplies the Base Model class.
 """
 from uuid import uuid4
-import datetime
+from datetime import datetime
 
 
 class BaseModel:
@@ -16,17 +16,31 @@ class BaseModel:
             is changed.
     """
 
-    def __init__(self):
-        """ Initializes the BaseModel class. """
+    def __init__(self, *args, **kwargs):
+        """ Initialize BaseModel class using a dictionary representation.
 
-        self.id = str(uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = self.created_at
+        Args:
+            args: not used.
+            kwargs: A dictionary representation of a BaseModel instance.
+        """
+
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != "__class__":
+                    if key == 'created_at' or key == 'updated_at':
+                        value = datetime.datetime.strptime(
+                            value, "%Y-%m-%dT%H:%M:%S.%f")
+                    setattr(self, key, value)
+
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
 
     def save(self):
         """ Updates the public instance attribute updated_at """
 
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """ Returns a dictionary containing all keys/values of __dict__. """
