@@ -17,15 +17,7 @@ class BaseModel:
     """
 
     def __init__(self):
-        """ Initializes the BaseModel class
-
-        Args:
-            id (str): assign with an uuid when an instance is created.
-            created_at (datetime): current datetime when instance is created.
-            updated_at (datetime): assign with the current datetime when an
-                instance is created and it will be updated everytime the object
-                changes.
-        """
+        """ Initializes the BaseModel class. """
 
         self.id = str(uuid4())
         self.created_at = datetime.datetime.now()
