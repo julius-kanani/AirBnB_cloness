@@ -4,7 +4,7 @@ This module supplies the Base Model class.
 """
 from uuid import uuid4
 from datetime import datetime
-
+import models
 
 class BaseModel:
     """ Defines the BaseModel class.
@@ -36,6 +36,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
+            models.storage.new(self)
 
     def save(self):
         """ Updates the public instance attribute updated_at """
