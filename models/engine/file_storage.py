@@ -1,9 +1,22 @@
 #!/usr/bin/python3
 """ The file_storage module.
 This module supplies the FileStorage class. """
-import json
-from models.base_model import BaseModel
+#!/usr/bin/python3
+"""
+Contains the FileStorage class
+"""
 
+import json
+from models.amenity import Amenity
+from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
+
+classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
+           "Place": Place, "Review": Review, "State": State, "User": User}
 
 class FileStorage:
     """ Defines the File storage class, that serializes instances to a JSON
