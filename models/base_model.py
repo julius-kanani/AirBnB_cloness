@@ -38,6 +38,7 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = self.created_at
             models.storage.new(self)
+            models.storage.save()
 
     def save(self):
         """ Updates the public instance attribute updated_at """
@@ -48,10 +49,12 @@ class BaseModel:
     def to_dict(self):
         """ Returns a dictionary containing all keys/values of __dict__. """
 
-        dict_rep = self.__dict__
-        dict_rep['__class__'] = type(self).__name__
-        dict_rep['created_at'] = dict_rep['created_at'].isoformat()
-        dict_rep['updated_at'] = dict_rep['updated_at'].isoformat()
+        dict_rep = self.__dict__.copy()
+        dict_rep['__class__'] = self.__class__.__name__
+        if "created_at" in dict_rep.keys():
+            dict_rep['created_at'] = dict_rep['created_at'].isoformat()
+        if "updated_at" in dict_rep.keys():
+            dict_rep['updated_at'] = dict_rep['updated_at'].isoformat()
 
         return dict_rep
 
