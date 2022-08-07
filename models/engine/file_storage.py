@@ -56,5 +56,5 @@ class FileStorage:
                     obj = BaseModel(**obj_attr)
                     self.new(obj)
 
-        except FileNotFoundError:
+        except FileNotFoundError as Error:
             pass
