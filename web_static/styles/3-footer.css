@@ -1,0 +1,15 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #CCCCCC;
+    width: 100%;
+    background-color: white;
+    height: 60px;
+    display: table;
+}
+
+footer p {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
